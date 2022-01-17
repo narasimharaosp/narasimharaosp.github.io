@@ -1,1 +1,265 @@
-Hey, This is narasimha!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Lobster">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Narasimha - portfolio</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      background: url('images/laptop.webp') no-repeat center center / cover;
+      color: #ffffff;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+    }
+    .night{
+      background: url('images/dev.webp') no-repeat center center / cover;
+    }
+    .overlay {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+      cursor: pointer;
+    }
+    .container {
+      margin: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: baseline;
+    }
+    section {
+      padding-top: 20px;
+      text-align: center;
+      width: 100%;
+    }
+    h1{
+      font-size: 28px;
+    }
+    p{
+      font-size: 18px;
+      padding: 20px 50px;
+    }
+    a {
+      display: block;
+      font-size: 18px;
+      padding-top: 40px;
+      color: #ffffff;
+    }
+    header {
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+    }
+    .signature {
+      padding-top: 20px;
+    }
+    .signature p {
+      font-family: 'Lobster',sans-serif;
+      font-size: 70px;
+      padding: 40px 0 0;
+    }
+    .spacer {
+      padding: 40px 0px;
+    }
+    .icon.material-icons {
+      font-size: 70px;
+    }
+    .icon.material-icons:hover {
+      color: #2B97D3;
+    }
+    .short-into p {
+      line-height: 35px;
+    }
+    .more-info p{
+      padding-top: 40px;
+      line-height: 35px;
+    }
+    
+    .skills-card {
+      height: 180px;
+      perspective: 1000px;
+      margin: 20px auto;
+    }
+
+    .skills-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+    }
+    .skills-card-inner h2{
+      font-size: 20px;
+      padding-top: 10px;
+    }
+
+    .skills-card:hover .skills-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .skills-card-front, .skills-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    .skills-card-back {
+      transform: rotateY(180deg);
+    }
+
+    .skills-card p {
+      font-size: 16px;
+      padding: 10px 0;
+    }
+
+    .contact .socials-item{
+      display: inline-block;
+    }
+    .contact .socials-item a{
+      display: block;
+      width: 30px;
+      height: 30px;
+      margin: 0 4px;
+    }
+    .bring-to-front{
+      position: relative;
+      z-index: 2;
+    }
+    .copy-right {
+      font-size: 12px;
+      width: 100%;
+      text-align: center;
+    }
+    @media (min-width: 768px){
+      .container {
+        flex-wrap: nowrap;
+        height: 95vh;
+      }
+      section {
+        padding-top: 40px;
+        text-align: center;
+        width: 50%;
+      }
+      h1{
+        font-size: 22px;
+      }
+      p{
+        font-size: 20px;
+        padding: 10px 25px;
+      }
+      a {
+        font-size: 20px;
+      }
+      .skills-card{
+        width: 420px;
+      }
+      footer{
+        height: 5vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="container bring-to-front">
+    <section>
+      <div class="signature">
+        <p>nr</p>
+      </div>
+      <div class="spacer short-info">
+        <h1>Hello, my name is Narasimha Rao, & <br> I'm Senior Web Developer</h1>
+        <p>"Started career working with logic later <br>being pulled by UI's beauty."</p>
+      </div>
+      <div class="spacer more-info">
+        <i class="icon material-icons">person_pin</i>
+        <h1>About me</h1>
+        <p>I have 7+ years of Experience in Web Development <br> currently as a Senior Software Consultant at SystemsPlus. <br> I've graduated from University of SIET, Tumkur. <br>I'm passionate about coding And new technologies and trends. <br>My goal is to build valuable solutions.</p>
+      </div>
+    </section>
+    <section>
+      <div class="spacer skills-info">
+        <span class="icon material-icons">code</span>
+        <h1>Experience</h1>
+        <div class="skills-card">
+          <div class="skills-card-inner">
+            <div class="skills-card-front">
+              <h2>Frontend Skills</h2> 
+              <p>HTML5, CSS3, Javascript</p>
+              <p>Vue, Bootstrap, jQuery</p>
+              <p>Photoshop, VS Code, Git</p>
+            </div>
+            <div class="skills-card-back">
+              <h2>Backend Skills</h2> 
+              <p>PHP, NodeJS, Drupal</p>
+              <p>MySQL, MongoDB</p>
+              <p>Netbeans and Compass</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="spacer contact">
+        <span class="icon material-icons">send</span>
+        <h1>Contact</h1>
+        <a href="mailto:hi@spnarasimharao.in">hi@spnarasimharao.in</a>
+        <ul class="socials">
+          <li class="socials-item">
+            <a href="https://twitter.com/narasimharaosp" target="_blank" title="Twitter">
+              <svg class="svg-inline--fa fa-twitter fa-w-16" aria-hidden="true" data-prefix="fab" data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                  <path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="socials-item">
+            <a href="https://www.instagram.com/narasimharaosp/" target="_blank" title="Instagram">
+              <svg class="svg-inline--fa fa-instagram fa-w-14" aria-hidden="true" data-prefix="fab" data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                  <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="socials-item">
+            <a href="https://in.linkedin.com/in/narasimharaosp" target="_blank" title="Tumblr">
+            <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin-in" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-linkedin-in fa-w-14 fa-lg"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" class=""></path></svg>
+            </a>
+          </li>
+      </ul>
+      </div>
+    </section>
+  </div>
+  <footer class="bring-to-front">
+    <p class="copy-right">2022 © spnarasimharao.in All Right Reserved.</p>
+  </footer>
+  <script type="text/javascript">
+    const hours = new Date().getHours()
+    const isDayTime = hours > 6 && hours < 20
+    
+    if (isDayTime) {
+      console.log('It\'s day time! have a good day', hours,'hours')
+      document.body.classList.remove('night')
+    } else {
+      console.log('It\'s night time! have a good night', hours,'hours')
+      document.body.classList.add('night')
+    }
+  </script>
+</body>
+</html>
