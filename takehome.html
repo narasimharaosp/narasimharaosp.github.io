@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Salary calculator</title>
+</head>
+<body class="font-mono text-sm dark dark:bg-slate-900">
+  <div class="container mx-auto px-4 py-10 max-w-sm">
+    <h1 class="inline-block text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+      Take home calculator
+    </h1>
+    <form action="#" class="py-10">
+      <div class="my-5">
+        <label for="totalPackage" class="text-sky-500 antialiased hover:subpixel-antialiased hover:underline">
+          Total package:
+        </label>
+        <input type="text" name="" id="totalPackage" onKeyUp="formatMoney(event)" value="" class="bg-slate-200 py-1 px-2 float-right rounded text-right shadow"/>
+      </div>
+      <div class="my-5">
+        <label for="presentTakeHome" class="text-sky-500 antialiased hover:subpixel-antialiased hover:underline">Present Take Home:</label>
+        <input type="text" name="" id="presentTakeHome" onKeyUp="formatMoney(event)" value="" class="bg-slate-200 py-1 px-2 float-right rounded text-right shadow"/>
+      </div>
+      <div class="my-5">
+        <label for="incrementPercentage" class="text-sky-500 antialiased hover:subpixel-antialiased hover:underline">Appx. Increment%:</label>
+        <input type="text" name="" id="incrementPercentage" onKeyUp="formatMoney(event)" value="" class="bg-slate-200 py-1 px-2 float-right rounded text-right shadow"/>
+      </div>
+      <div class="flex justify-between my-5 text-white">
+        <label class="text-sky-500 antialiased hover:subpixel-antialiased hover:underline">Package after increment:</label>
+        <span id="laterPackage" class="normal-nums mx-2"></span>
+      </div>
+      <div class="flex justify-between my-5 text-white">
+        <label class="text-sky-500 antialiased hover:subpixel-antialiased hover:underline">Take home salary:</label>
+        <span id="result" class="normal-nums mx-2"></span>
+      </div>
+      <div class="my-5">
+        <button type="button" onclick="calculateSalary()" class="py-2 px-3 bg-indigo-500 text-white text-sm font-semibold rounded-md shadow focus:outline-none">
+          Calculate
+        </button>
+      </div>
+    </form>
+    <script>
+      function removeSpecialChars(val) {
+        val = val.replace(/,/g, '')
+        // val = val.replace(/₹/g, '')
+        val = parseFloat(val)
+        return val
+      }
+      function fixCurrency(val) {
+        return new Intl.NumberFormat('en-IN', { 
+          // style: 'currency', currency: 'INR'
+        }).format(val)
+      }
+      function calculateSalary() {
+        const totalSal = removeSpecialChars(document.getElementById("totalPackage").value)
+        const preTakeHome = removeSpecialChars(document.getElementById("presentTakeHome").value)
+        const increment = removeSpecialChars(document.getElementById("incrementPercentage").value)
+        const newSal = parseInt(totalSal + parseFloat(totalSal * (increment/100)))
+        const result = parseInt((preTakeHome * newSal)/totalSal)
+        document.getElementById("laterPackage").innerHTML = fixCurrency(newSal)
+        document.getElementById("result").innerHTML = fixCurrency(result)
+      }
+      function formatMoney(e) {
+        console.log(e.target.value)
+        if (!e.target.value || (e.target.value === 'NaN')) {
+          e.target.value = 0
+          return 0
+        }
+        const val = removeSpecialChars(e.target.value).toString()
+        // const formatted = (Math.round(val * 100) / 100).toLocaleString()
+        // const formatted = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumSignificantDigits: 3 }).format(val)
+        const formatted = fixCurrency(val)
+        e.target.value = (formatted !== 'NaN') || (formatted !== '₹NaN')? formatted : 0
+      }
+    </script>
+  </div>
+</body>
+</html>
